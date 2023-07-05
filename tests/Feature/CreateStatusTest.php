@@ -18,7 +18,7 @@ class CreateStatusTest extends TestCase
         $user = User::factory()->create();
         $this->actingAs($user);
         // 2. When => Cuando hace un post request a status
-        $response = $this->post(route('statuses.store'), ['body' => 'Mi primer estado']);
+        $response = $this->postJson(route('statuses.store'), ['body' => 'Mi primer estado']);
         $response->assertJson([
             'body' => 'Mi primer estado'
         ]);
@@ -37,5 +37,29 @@ class CreateStatusTest extends TestCase
     {
         $response = $this->post(route('statuses.store'), ['body' => 'Mi primer estado']);
         $response->assertRedirect('login');
+    }
+
+    /** @test */
+    public function un_estado_requiere_un_body()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $response = $this->postJson(route('statuses.store'), ['body' => '']);
+        $response->assertStatus(422);
+        $response->assertJsonStructure([
+            'message', 'errors' => ['body']
+        ]);
+    }
+
+    /** @test */
+    public function un_estado_debe_tener_cantidad_minima()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $response = $this->postJson(route('statuses.store'), ['body' => 'aaa']);
+        $response->assertStatus(422);
+        $response->assertJsonStructure([
+            'message', 'errors' => ['body']
+        ]);
     }
 }
