@@ -17,7 +17,7 @@ class StatusFactory extends Factory
     public function definition(): array
     {
         return [
-            "body" => $this->faker->paragraph(),
+            "body" => $this->faker->sentence(),
             "user_id" => \App\Models\User::factory()->create()->id
         ];
     }

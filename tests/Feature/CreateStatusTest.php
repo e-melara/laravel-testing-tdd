@@ -19,11 +19,9 @@ class CreateStatusTest extends TestCase
         $this->actingAs($user);
         // 2. When => Cuando hace un post request a status
         $response = $this->postJson(route('statuses.store'), ['body' => 'Mi primer estado']);
+
         $response->assertJson([
-            'body' => 'Mi primer estado'
-        ]);
-        $response->assertJson([
-            "body" => "Mi primer estado",
+          "data" => [ "body" => "Mi primer estado" ],
         ]);
         // 3. Then => Entonces veo un nuevo estado en la base de datos
         $this->assertDatabaseHas('statuses', [
