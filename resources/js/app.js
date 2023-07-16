@@ -5,8 +5,10 @@
  */
 
 import "./bootstrap";
-import { createApp } from "vue";
 import mitt from "mitt";
+import { createApp } from "vue";
+
+import authMixis from "./mixis/auth";
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -42,5 +44,6 @@ app.component("statuses-list", StatusesList);
  */
 
 app.config.globalProperties.emitter = emitter;
+app.mixin(authMixis);
 
 app.mount("#app");

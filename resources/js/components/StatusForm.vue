@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handlerSubmit">
+  <form @submit.prevent="handlerSubmit" v-if="isAuthenticated">
     <div class="card bg-light border-0 shadow-sm">
       <div class="card-body">
         <textarea
@@ -7,7 +7,7 @@
           name="body"
           id="body"
           v-model="body"
-          placeholder="¿Qué estás pensando?"
+          :placeholder="`¿Qué estás ${user.name}?`"
         ></textarea>
       </div>
       <div class="card-footer">

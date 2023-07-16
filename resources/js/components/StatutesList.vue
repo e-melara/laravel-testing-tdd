@@ -32,12 +32,14 @@ export default {
     };
   },
   mounted() {
-    axios.get("statuses").then(({ data: response }) => {
-      this.statuses = response.data;
-    });
-    this.emitter.on("status-created", (status) => {
-      this.statuses.unshift(status.data);
-    });
+    if (this.isAuthenticated) {
+      axios.get("statuses").then(({ data: response }) => {
+        this.statuses = response.data;
+      });
+      this.emitter.on("status-created", (status) => {
+        this.statuses.unshift(status.data);
+      });
+    }
   },
 };
 </script>
