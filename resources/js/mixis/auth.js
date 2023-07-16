@@ -8,5 +8,15 @@ export default {
     isAuthenticated() {
       return !!user.content;
     },
+    isGuest() {
+      return !user.content;
+    },
+  },
+  methods: {
+    redirectIfGuest() {
+      if (this.isGuest) {
+        window.location.href = "/login";
+      }
+    },
   },
 };

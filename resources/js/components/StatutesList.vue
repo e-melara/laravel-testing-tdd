@@ -3,6 +3,7 @@
     class="card bg-white border-0 mb-3"
     v-for="status in statuses"
     :key="status.id"
+    @click="redirectIfGuest"
   >
     <div class="card-body d-flex flex-column shadow-sm">
       <div class="d-flex align-items-center mb-3">
@@ -20,6 +21,19 @@
       </div>
       <p class="card-text text-secondary">{{ status.body }}</p>
     </div>
+    <div class="card-footer p-2">
+      <button
+        class="btn btn-link px-2"
+        v-if="status.is_liked"
+        @click="unlike(status)"
+      >
+        <strong> <i class="fa-solid fa-thumbs-up me-2"></i> TE GUSTA </strong>
+      </button>
+      <button class="btn btn-link px-2" v-else @click="like(status)">
+        <i class="fa-solid fa-heart me-2"></i>
+        ME GUSTA
+      </button>
+    </div>
   </div>
 </template>
 
@@ -31,17 +45,32 @@ export default {
       statuses: [],
     };
   },
+  methods: {
+    like(status) {
+      axios.post(`/statuses/${status.id}/likes`).then(() => {
+        status.is_liked = true;
+      });
+    },
+    unlike(status) {
+      axios.delete(`/statuses/${status.id}/likes`).then(() => {
+        status.is_liked = false;
+      });
+    },
+  },
   mounted() {
-    if (this.isAuthenticated) {
-      axios.get("statuses").then(({ data: response }) => {
-        this.statuses = response.data;
-      });
-      this.emitter.on("status-created", (status) => {
-        this.statuses.unshift(status.data);
-      });
-    }
+    axios.get("statuses").then(({ data: response }) => {
+      this.statuses = response.data;
+    });
+    this.emitter.on("status-created", (status) => {
+      this.statuses.unshift(status.data);
+    });
   },
 };
 </script>
 
-<style></style>
+<style>
+.btn-link {
+  text-decoration: none;
+  font-weight: normal;
+}
+</style>

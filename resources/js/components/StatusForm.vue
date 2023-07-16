@@ -11,7 +11,9 @@
         ></textarea>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary" id="create-status">Publicar</button>
+        <button class="btn btn-primary" id="create-status">
+          <i class="fa-solid fa-paper-plane me-2"></i> Publicar
+        </button>
       </div>
     </div>
   </form>
