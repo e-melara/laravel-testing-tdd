@@ -33,6 +33,7 @@
         <i class="fa-solid fa-heart me-2"></i>
         ME GUSTA
       </button>
+      <span>{{ status.likes_count }}</span>
     </div>
   </div>
 </template>
@@ -49,11 +50,13 @@ export default {
     like(status) {
       axios.post(`/statuses/${status.id}/likes`).then(() => {
         status.is_liked = true;
+        status.likes_count++;
       });
     },
     unlike(status) {
       axios.delete(`/statuses/${status.id}/likes`).then(() => {
         status.is_liked = false;
+        status.likes_count--;
       });
     },
   },

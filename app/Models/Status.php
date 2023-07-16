@@ -34,4 +34,8 @@ class Status extends Model
     public function unlike() : void {
         $this->likes()->where('user_id', auth()->id())->delete();
     }
+
+    public function likedCount() {
+        return $this->likes()->count();
+    }
 }

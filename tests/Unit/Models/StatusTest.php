@@ -62,4 +62,14 @@ class StatusTest extends TestCase
         $status->unlike();
         $this->assertFalse($status->isLiked());
     }
+
+    /** @test */
+    public function un_status_sabe_cuantos_likes_tiene() : void
+    {
+        $status = Status::factory()->create();
+        $this->assertEquals(0, $status->likedCount());
+
+        $like = Like::factory()->create(['status_id' => $status->id]);
+        $this->assertEquals(1, $status->likedCount());
+     }
 }
