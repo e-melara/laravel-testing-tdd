@@ -7,11 +7,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class StatusResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
         return [
@@ -22,6 +17,7 @@ class StatusResource extends JsonResource
           'ago' => $this->created_at->diffForHumans(),
           'is_liked' => $this->isLiked(),
           'likes_count' => $this->likedCount(),
+          'comments' => CommentResource::collection($this->comments),
         ];
     }
 }

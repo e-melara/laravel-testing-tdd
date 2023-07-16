@@ -38,4 +38,8 @@ class Status extends Model
     public function likedCount() {
         return $this->likes()->count();
     }
+
+    public function comments() : HasMany {
+        return $this->hasMany(Comment::class);
+    }
 }

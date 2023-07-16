@@ -1,12 +1,13 @@
 <?php
 
 namespace Tests\Unit\Models;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use Tests\TestCase;
+use App\Models\User;
 use App\Models\Like;
 use App\Models\Status;
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use App\Models\Comment;
 
 class StatusTest extends TestCase
 {
@@ -71,5 +72,14 @@ class StatusTest extends TestCase
 
         $like = Like::factory()->create(['status_id' => $status->id]);
         $this->assertEquals(1, $status->likedCount());
+     }
+
+     /** @test */
+     public function un_estado_tiene_muchos_comentarios() : void
+     {
+        $status = Status::factory()->create();
+        Comment::factory()->create(['status_id' => $status->id]);
+
+        $this->assertInstanceOf(Comment::class, $status->comments()->first());
      }
 }
