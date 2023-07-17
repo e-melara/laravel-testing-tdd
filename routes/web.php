@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StatusesController;
 use App\Http\Controllers\StatusesLikesController;
+use App\Http\Controllers\StatusCommentController;
 use App\Http\Controllers\CommentLikesController;
 
 Auth::routes();

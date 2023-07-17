@@ -2,21 +2,19 @@
 
 namespace App\Models;
 
+use App\Traits\HasLike;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model
 {
-    use HasFactory;
+  use HasFactory, HasLike;
 
-    protected $guarded = [];
+  protected $guarded = [];
 
-    public function user() : BelongsTo {
-        return $this->belongsTo(User::class);
-    }
-
-    public function likes() {
-        return $this->morphMany(Like::class, 'likeable');
-    }
+  public function user(): BelongsTo
+  {
+    return $this->belongsTo(User::class);
+  }
 }

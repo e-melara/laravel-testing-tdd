@@ -14,6 +14,7 @@ class CreateCommentTest extends TestCase
     /** @test */
     public function un_usuario_autenticado_puede_crear_comentario() : void
     {
+      $this->withoutExceptionHandling();
         $comment = ['body' => 'Mi primer comentario'];
         $user = User::factory()->create();
         $status = Status::factory()->create();
