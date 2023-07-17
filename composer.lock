@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fc19faf211f833b10c4e3810ac6687e",
+    "content-hash": "6a5b720848c88ba2f0a8c64a87e42796",
     "packages": [
         {
             "name": "brick/math",
@@ -2757,16 +2757,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.18",
+            "version": "v0.11.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "4f00ee9e236fa6a48f4560d1300b9c961a70a7ec"
+                "reference": "1724ceff278daeeac5a006744633bacbb2dc4706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4f00ee9e236fa6a48f4560d1300b9c961a70a7ec",
-                "reference": "4f00ee9e236fa6a48f4560d1300b9c961a70a7ec",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1724ceff278daeeac5a006744633bacbb2dc4706",
+                "reference": "1724ceff278daeeac5a006744633bacbb2dc4706",
                 "shasum": ""
             },
             "require": {
@@ -2827,9 +2827,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.18"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.19"
             },
-            "time": "2023-05-23T02:31:11+00:00"
+            "time": "2023-07-15T19:42:19+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -5761,81 +5761,6 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
-            "name": "laravel/dusk",
-            "version": "v7.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/dusk.git",
-                "reference": "82cf388bac1e0ff80f1c2c4b5107ee7c0496b3a5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/82cf388bac1e0ff80f1c2c4b5107ee7c0496b3a5",
-                "reference": "82cf388bac1e0ff80f1c2c4b5107ee7c0496b3a5",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-zip": "*",
-                "illuminate/console": "^9.0|^10.0",
-                "illuminate/support": "^9.0|^10.0",
-                "nesbot/carbon": "^2.0",
-                "php": "^8.0",
-                "php-webdriver/webdriver": "^1.9.0",
-                "symfony/console": "^6.0",
-                "symfony/finder": "^6.0",
-                "symfony/process": "^6.0",
-                "vlucas/phpdotenv": "^5.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.4.2",
-                "orchestra/testbench": "^7.0|^8.0",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^9.5.10|^10.0.1",
-                "psy/psysh": "^0.11.12"
-            },
-            "suggest": {
-                "ext-pcntl": "Used to gracefully terminate Dusk when tests are running."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "7.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Dusk\\DuskServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Dusk\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Laravel Dusk provides simple end-to-end testing and browser automation.",
-            "keywords": [
-                "laravel",
-                "testing",
-                "webdriver"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/dusk/issues",
-                "source": "https://github.com/laravel/dusk/tree/v7.8.0"
-            },
-            "time": "2023-07-08T21:23:29+00:00"
-        },
-        {
             "name": "laravel/pint",
             "version": "v1.10.5",
             "source": {
@@ -5900,71 +5825,6 @@
                 "source": "https://github.com/laravel/pint"
             },
             "time": "2023-07-14T10:26:01+00:00"
-        },
-        {
-            "name": "laravel/sail",
-            "version": "v1.23.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/sail.git",
-                "reference": "62582606f80466aa81fba40b193b289106902853"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/62582606f80466aa81fba40b193b289106902853",
-                "reference": "62582606f80466aa81fba40b193b289106902853",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^8.0|^9.0|^10.0",
-                "illuminate/contracts": "^8.0|^9.0|^10.0",
-                "illuminate/support": "^8.0|^9.0|^10.0",
-                "php": "^8.0",
-                "symfony/yaml": "^6.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^6.0|^7.0|^8.0",
-                "phpstan/phpstan": "^1.10"
-            },
-            "bin": [
-                "bin/sail"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Sail\\SailServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Sail\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Docker files for running a basic Laravel application.",
-            "keywords": [
-                "docker",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/sail/issues",
-                "source": "https://github.com/laravel/sail"
-            },
-            "time": "2023-06-28T18:31:28+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -6309,72 +6169,6 @@
                 "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
             "time": "2022-02-21T01:04:05+00:00"
-        },
-        {
-            "name": "php-webdriver/webdriver",
-            "version": "1.14.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-webdriver/php-webdriver.git",
-                "reference": "3ea4f924afb43056bf9c630509e657d951608563"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-webdriver/php-webdriver/zipball/3ea4f924afb43056bf9c630509e657d951608563",
-                "reference": "3ea4f924afb43056bf9c630509e657d951608563",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "ext-zip": "*",
-                "php": "^7.3 || ^8.0",
-                "symfony/polyfill-mbstring": "^1.12",
-                "symfony/process": "^5.0 || ^6.0"
-            },
-            "replace": {
-                "facebook/webdriver": "*"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.20.0",
-                "ondram/ci-detector": "^4.0",
-                "php-coveralls/php-coveralls": "^2.4",
-                "php-mock/php-mock-phpunit": "^2.0",
-                "php-parallel-lint/php-parallel-lint": "^1.2",
-                "phpunit/phpunit": "^9.3",
-                "squizlabs/php_codesniffer": "^3.5",
-                "symfony/var-dumper": "^5.0 || ^6.0"
-            },
-            "suggest": {
-                "ext-SimpleXML": "For Firefox profile creation"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/Exception/TimeoutException.php"
-                ],
-                "psr-4": {
-                    "Facebook\\WebDriver\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A PHP client for Selenium WebDriver. Previously facebook/webdriver.",
-            "homepage": "https://github.com/php-webdriver/php-webdriver",
-            "keywords": [
-                "Chromedriver",
-                "geckodriver",
-                "php",
-                "selenium",
-                "webdriver"
-            ],
-            "support": {
-                "issues": "https://github.com/php-webdriver/php-webdriver/issues",
-                "source": "https://github.com/php-webdriver/php-webdriver/tree/1.14.0"
-            },
-            "time": "2023-02-09T12:12:19+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -8013,77 +7807,6 @@
                 }
             ],
             "time": "2023-06-28T13:51:52+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v6.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "a9a8337aa641ef2aa39c3e028f9107ec391e5927"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/a9a8337aa641ef2aa39c3e028f9107ec391e5927",
-                "reference": "a9a8337aa641ef2aa39c3e028f9107ec391e5927",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "symfony/polyfill-ctype": "^1.8"
-            },
-            "conflict": {
-                "symfony/console": "<5.4"
-            },
-            "require-dev": {
-                "symfony/console": "^5.4|^6.0"
-            },
-            "bin": [
-                "Resources/bin/yaml-lint"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v6.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2023-04-28T13:28:14+00:00"
         },
         {
             "name": "theseer/tokenizer",

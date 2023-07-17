@@ -1,8 +1,18 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
-
+@import url("https://fonts.bunny.net/css?family=Nunito");
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+// for FontAwesome v6+
+$fa-font-path: "~fontawesome/webfonts";
+@import "~fontawesome/scss/fontawesome";
+@import "~fontawesome/scss/brands";
+@import "~fontawesome/scss/solid";
+
+.float-left {
+  clear: both !important;
+  float: left !important;
+}

@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="user" content="{{ Auth::user() }}" />
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' />
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -21,7 +23,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                   <i class="fa-solid fa-book" style='margin-right:5px;'></i>{{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

@@ -4,8 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import './bootstrap';
-import { createApp } from 'vue';
+import "./bootstrap";
+import mitt from "mitt";
+import { createApp } from "vue";
+
+import authMixis from "./mixis/auth";
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -14,9 +17,13 @@ import { createApp } from 'vue';
  */
 
 const app = createApp({});
+const emitter = mitt();
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+import StatusForm from "./components/StatusForm.vue";
+import StatusesList from "./components/StatutesList.vue";
+
+app.component("status-form", StatusForm);
+app.component("statuses-list", StatusesList);
 
 /**
  * The following block of code may be used to automatically register your
@@ -36,4 +43,7 @@ app.component('example-component', ExampleComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+app.config.globalProperties.emitter = emitter;
+app.mixin(authMixis);
+
+app.mount("#app");
