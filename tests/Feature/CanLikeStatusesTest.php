@@ -11,34 +11,24 @@ use App\Models\User;
 
 class CanLikeStatusesTest extends TestCase
 {
-    use RefreshDatabase;
-    
-    /** @test */
-    public function un_usuario_autenticado_puede_dar_me_gusta_a_un_estado() : void
-    {
-        $user = User::factory()->create();
-        $status = Status::factory()->create();
+  use RefreshDatabase;
 
-        $this->actingAs($user)->postJson(route('statuses.likes.store', $status));
-        $this->assertDatabaseHas('likes', [
-            'user_id' => $user->id,
-            'status_id' => $status->id
-        ]);
-    }
+  /** @test */
+  public function un_usuario_autenticado_puede_dar_me_gusta_a_un_estado_y_quitar_me_gusta(): void
+  {
+    $user = User::factory()->create();
+    $status = Status::factory()->create();
 
-    /** @test */
-    public function un_usuario_autenticado_puede_dar_no_me_gusta_a_un_estado() : void
-    {
-        $this->withExceptionHandling();
-        $user = User::factory()->create();
-        $status = Status::factory()->create();
-
-        $this->actingAs($user);
-        $status->like();
-        $this->deleteJson(route('statuses.likes.destroy', $status));
-        $this->assertDatabaseMissing('likes', [
-            'user_id' => $user->id,
-            'status_id' => $status->id
-        ]);
-    }
+    $this->assertCount(0, $status->likes);
+    $this->actingAs($user)->postJson(route('statuses.likes.store', $status));
+    $this->assertCount(1, $status->fresh()->likes);
+    $this->assertDatabaseHas('likes', [
+      'user_id' => $user->id,
+    ]);
+    $this->actingAs($user)->deleteJson(route('statuses.likes.destroy', $status));
+    $this->assertCount(0, $status->fresh()->likes);
+    $this->assertDatabaseMissing('likes', [
+      'user_id' => $user->id,
+    ]);
+  }
 }

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StatusesController;
 use App\Http\Controllers\StatusesLikesController;
-use App\Http\Controllers\StatusCommentController;
+use App\Http\Controllers\CommentLikesController;
 
 Auth::routes();
 
@@ -20,4 +20,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // comments
     Route::post('statuses/{status}/comments', [StatusCommentController::class, 'store'])->name('statuses.comments.store');
+
+    // comments likes
+    Route::post('comments/{comment}/likes', [CommentLikesController::class, 'store'])->name('comments.likes.store');
+    Route::delete('comments/{comment}/likes', [CommentLikesController::class, 'destroy'])->name('comments.likes.destroy');
 });

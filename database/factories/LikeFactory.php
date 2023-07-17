@@ -17,7 +17,6 @@ class LikeFactory extends Factory
     public function definition(): array
     {
         return [
-            'status_id' => \App\Models\Status::factory(),
             'user_id' => \App\Models\User::factory(),
         ];
     }
