@@ -10,22 +10,32 @@
   </div>
   <div class="card-footer">
     <div v-for="(comment, index) in status.comments" :key="index">
-      <img
-        :src="comment.user_avatar"
-        :alt="comment.user_name"
-        width="45"
-        class="rounded shadow-sm float-left me-3"
-      />
-      <div class="card bg-white border-0 shadow-sm mb-3">
-        <div class="card-body">
-          <a href="#" class="text-decoration-none font-weight-bold">
-            {{ comment.user_name }}
-          </a>
-          {{ comment.body }}
+      <div class="d-flex mb-2">
+        <img
+          :src="comment.user_avatar"
+          :alt="comment.user_name"
+          width="45"
+          height="45"
+          class="rounded shadow-sm float-left me-3"
+        />
+        <div class="flex-grow-1">
+          <div class="card bg-white border-0 shadow-sm mb-2">
+            <div class="card-body">
+              <a href="#" class="text-decoration-none font-weight-bold">
+                {{ comment.user_name }}
+              </a>
+              {{ comment.body }}
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <like-btn class="comment-btn-like" :model="comment" :url="`/comments/${comment.id}/likes`"/>
+            <small class="badge rounded-pill text-bg-primary float-end">
+              <i class="fa fa-thumbs-up"></i>
+              {{ comment.likes_count }}
+            </small>
+          </div>
         </div>
       </div>
-      <span>{{ comment.count_likes }}</span>
-      <like-btn :model="comment" :url="`/comments/${comment.id}/likes`"/>
     </div>
     <form
       class="d-flex justify-between align-items-center"
@@ -84,4 +94,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.comment-btn-like {
+  font-size: 0.8rem;
+
+  i.fa-solid {
+    display: none;
+  }
+}
+</style>

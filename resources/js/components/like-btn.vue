@@ -16,7 +16,8 @@ export default {
       const method = this.model.is_liked ? 'delete' : 'post';
       axios[method](this.url).then(() => {
         this.model.is_liked = !this.model.is_liked;
-        this.model.likes_count = method === 'post' ? this.model.likes_count++ : this.model.likes_count--;
+        this.model.likes_count = method === 'post' ? this.model.likes_count + 1 : this.model.likes_count - 1;
+        console.log(this.model)
       });
     },
   },

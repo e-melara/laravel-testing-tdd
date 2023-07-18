@@ -21,7 +21,7 @@ class CommentResourceTest extends TestCase
         $this->assertEquals($comment->user->name, $response['user_name']);
         $this->assertEquals('/images/avatar.jpg', $response['user_avatar']);
         $this->assertEquals($comment->id, $response['id']);
-        $this->assertEquals(0, $response['count_likes']);
-        $this->assertFalse($comment->isLiked());
+      $this->assertFalse($comment->isLiked());
+      $this->assertEquals(0, $response['likes_count']);
     }
 }
