@@ -5,8 +5,7 @@
         :src="status.user_avatar"
         alt="image de perfil"
         :width="40"
-        style="margin-right: 10px"
-        class="rounded"
+        class="rounded me-3"
       />
       <div>
         <h5 class="mb-1" v-text="status.user_name"></h5>

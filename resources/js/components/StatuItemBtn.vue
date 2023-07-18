@@ -34,6 +34,9 @@
           {{ comment.body }}
         </div>
       </div>
+      <span>{{comment.count_likes}}</span>
+      <button v-if="comment.is_liked" @click="unLikeComment(comment)">TE GUSTA</button>
+      <button v-else @click="likeComment(comment)">ME GUSTA</button>
     </div>
     <form
       class="d-flex justify-between align-items-center"
@@ -93,6 +96,22 @@ export default {
       axios.delete(`/statuses/${this.status.id}/likes`).then(() => {
         this.status.is_liked = false;
         this.status.likes_count--;
+      });
+    },
+    likeComment(comment) {
+      axios.post(`/comments/${comment.id}/likes`).then(() => {
+        comment.is_liked = true;
+        comment.count_likes++;
+      }).catch(err => {
+        console.log(err);
+      });
+    },
+    unLikeComment(comment) {
+      axios.delete(`/comments/${comment.id}/likes`).then(() => {
+        comment.is_liked = false;
+        comment.count_likes--;
+      }).catch(err => {
+        console.log(err);
       });
     },
   },

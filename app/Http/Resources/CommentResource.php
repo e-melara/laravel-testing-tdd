@@ -7,17 +7,20 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class CommentResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
-    public function toArray(Request $request): array
-    {
-        return [
-            'body' => $this->body,
-            'user_name' => $this->user->name,
-            'user_avatar' => '/images/avatar.jpg',
-        ];
-    }
+  /**
+   * Transform the resource into an array.
+   *
+   * @return array<string, mixed>
+   */
+  public function toArray(Request $request): array
+  {
+    return [
+      'id' => $this->id,
+      'body' => $this->body,
+      'user_name' => $this->user->name,
+      'user_avatar' => '/images/avatar.jpg',
+      'count_likes' => $this->likes->count(),
+      'is_liked' => $this->isLiked(),
+    ];
+  }
 }
