@@ -21,7 +21,7 @@
         <div class="flex-grow-1">
           <div class="card bg-white border-0 shadow-sm mb-2">
             <div class="card-body">
-              <a href="#" class="text-decoration-none font-weight-bold">
+              <a :href="comment.user_link" class="text-decoration-none font-weight-bold">
                 {{ comment.user_name }}
               </a>
               {{ comment.body }}

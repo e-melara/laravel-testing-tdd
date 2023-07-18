@@ -8,7 +8,9 @@
         class="rounded me-3"
       />
       <div>
-        <h5 class="mb-1" v-text="status.user_name"></h5>
+        <h5 class="mb-1">
+          <a :href="status.user_link" v-text="status.user_name"></a>
+        </h5>
         <div class="small text-muted" v-text="status.ago"></div>
       </div>
     </div>
